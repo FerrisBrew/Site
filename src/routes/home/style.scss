@@ -1,5 +1,94 @@
+@use "sass:math";
+@mixin Center() {
+	// text-align: center;
+	position: relative;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
 .home {
-	padding: var(--headerHeight) 20px;
-	min-height: 100%;
-	width: 100%;
+	// padding: var(--headerHeight) calc(20px + var(--sidePadding));
+	padding: 0 0;
+	height: 100vh;
+	width: 100vw;
+
+	transition: padding 1s;
+	position: absolute;
+	left: 50vw;
+	transform: translate(-50%, 0);
+	top: 0;
+	overflow: hidden visible;
+	// position: relative;
+}
+
+@mixin Section() {
+	h3 {
+		font-weight: 600;
+		font-size: 3em;
+	}
+	min-width: 85vw;
+	.left {
+		width: 70%;
+		text-align: left;
+		@include Center();
+	}
+	.right {
+		width: 75%;
+		text-align: right;
+		@include Center();
+	}
+	.center {
+		width: 70%;
+		text-align: center;
+		@include Center();
+	}
+	height: 100vh;
+	position: relative;
+	top: -5px;
+	.card {
+		background: transparent !important;
+		transition: background 1s, top 1s;
+		top: 0;
+		position: relative;
+		padding: 30px 30px;
+		border-radius: 10px;
+		.card-content {
+			.card-title {
+				font-size: 200%;
+				font-weight: 700;
+			}
+		}
+	}
+	.card:hover {
+		background: #8c00ff23 !important;
+		top: -10px;
+	}
+}
+
+.betterLuaEnv {
+	height: 100vh;
+	height: max-content;
+	font-family: 'Poppins';
+	font-size: 150%;
+	@include Section();
+}
+.whyFerris {
+	@include Section();
+	clip-path: ellipse(100% 100% at 50% 100%);
+	background: rgb(7, 7, 7);
+	& h3 {
+		color: rgb(131, 181, 255);
+		padding-bottom: 15px;
+		text-align: center !important;
+		width: 100%;
+	}
+	& .card-title {
+		color: rgb(131, 181, 255);
+	}
+}
+.center {
+	@include Center();
+}
+.section {
+	@include Section();
 }

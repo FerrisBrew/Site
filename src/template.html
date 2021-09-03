@@ -1,20 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8">
+		<meta charset="utf-8" />
 		<title><% preact.title %></title>
-		<meta name="viewport" content="width=device-width,initial-scale=1">
-		<meta name="mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<meta name="mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png" />
 		<% preact.headEnd %>
 		<script src="/assets/particle.js"></script>
+		<link
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://ferrisbrew.github.io/materialize/dist/css/materialize.min.css"
+		/>
+		<script src="https://ferrisbrew.github.io/materialize/dist/js/materialize.min.js"></script>
 	</head>
 	<body>
 		<% preact.bodyEnd %>
-		<div style="z-index: -500; pointer-events: none; width: 100vw; height: 100vh; left:0;top:0;position:fixed;display: block;" id="particles-js"></div>
+		<div
+			style="
+				z-index: -500;
+				pointer-events: none;
+				width: 100vw;
+				height: 100vh;
+				left: 0;
+				top: 0;
+				position: fixed;
+				display: block;
+			"
+			id="particles-js"
+		></div>
 		<script>
-			window.particlesJS.load('particles-js', '/assets/particle.json', function() {
+			// Initialize Paralax
+			document.addEventListener('DOMContentLoaded', () => {
+				setTimeout(() => {
+					console.log('Initializing MaterialCSS');
+					M.Parallax.init(document.querySelectorAll('.parallax'), {});
+					M.Modal.init(document.querySelectorAll('.modal'), {});
+				}, 500);
+			});
+			// Initialize ParticleJS
+			window.particlesJS.load('particles-js', '/assets/particle.json', () => {
 				console.log('callback - particles.js config loaded');
 			});
 		</script>
