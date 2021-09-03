@@ -1,6 +1,6 @@
 # FerrisBrew Site
 
-For information, contact the [FerrisBrew Maintainer](discord://discordapp.com/users/596425713347723269/).
+For information, contact the [FerrisBrew Maintainer](https://zws.im/󠁰‍󠁷󠁩‌󠁩󠁺).
 
 This site is still under development - don't expect it to be finished!
 
