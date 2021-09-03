@@ -1,4 +1,8 @@
-# FerrisBrew
+# FerrisBrew Site
+
+For information, contact the [FerrisBrew Maintainer](discord://discordapp.com/users/596425713347723269/).
+
+This site is still under development - don't expect it to be finished!
 
 ## CLI Commands
 
