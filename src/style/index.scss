@@ -1,0 +1,62 @@
+// @keyframes bodyBg {
+// 	0% {
+// 		background-position: 0 0;
+// 	}
+// 	50% {
+// 		background-position: 100% 100%;
+// 	}
+// 	100% {
+// 		background-position: 0 0;
+// 	}
+// }
+html,
+body {
+	height: 100vh;
+	width: 100vw;
+	padding: 0;
+	margin: 0;
+	background: #181818;
+	// background: linear-gradient(45deg, rgb(36, 0, 243), rgb(162, 0, 255));
+	background: url(https://i.imgur.com/ExNrzGV.jpg);
+	background-size: cover;
+	background-position: center center;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+		Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-weight: 400;
+	color: rgb(255, 255, 255);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	z-index: -501;
+	position: fixed;
+	top: 0;
+	left: 0;
+	// animation: bodyBg 25s infinite;
+	// background-size: 200% 200%;
+	// --headerHeight: 30px;
+	--headerHeight: 40px;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+#app {
+	height: 100%;
+}
+
+.link {
+	color: rgb(0, 153, 255) !important;
+}
+*,
+* *,
+* * * {
+	&:not(.noFontWeight) {
+		font-weight: 100 !important;
+		& b {
+			font-weight: 700 !important;
+		}
+	}
+}
+small {
+	font-size: 70%;
+}
