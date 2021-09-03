@@ -24,8 +24,8 @@ const Home: FunctionalComponent = () => {
 							</a>
 							, FerrisBrew (aka FBrew, FelixBrew) is a Lua Obfuscator designed
 							for speed, efficiency and privacy. <br />
-							This script **is a work-in-progress**! This is not a final
-							version, but rather just what I have coded so far
+							This site **is a work-in-progress**! This is not a final version,
+							but rather just what I have coded so far
 						</p>
 					</div>
 					<div class={style.right}></div>
