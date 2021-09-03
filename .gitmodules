@@ -1,0 +1,3 @@
+[submodule "src/style/materialize"]
+	path = src/style/materialize
+	url = https://github.com/materializecss/materialize.git
