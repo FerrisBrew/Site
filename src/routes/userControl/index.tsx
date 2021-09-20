@@ -52,6 +52,24 @@ export default class UserControl extends Component {
 					<br />
 					<input type="submit" value="Add User" />
 				</form>
+				<br />
+				<h1>Get User Information</h1>
+				<form
+					action={
+						document.location.host == 'localhost:8080'
+							? 'http://localhost:6438/user'
+							: '/user'
+					}
+					method="get"
+					encType="multipart/form-data"
+				>
+					<input type="password" name="key" required />
+					<label htmlFor="key" for="key">
+						Key
+					</label>
+					<br />
+					<input type="submit" value="Get User Information" />
+				</form>
 			</div>
 		);
 	}

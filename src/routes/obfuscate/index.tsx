@@ -17,7 +17,7 @@ class SavedInput extends Component<{
 			if (this.props.type === 'checkbox') x = Boolean(x);
 			if (this.props.type === 'password' && (x === 'false' || x === false))
 				x = '';
-			console.log(x, typeof x, this.props.type);
+			// console.log(x, typeof x, this.props.type);
 
 			return x;
 		};
