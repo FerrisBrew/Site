@@ -11,7 +11,7 @@
 	&,
 	& * {
 		transition: background 1s, height 1s, width 1s, --headerHeight 1s,
-			font-size 1s, line-height 1s;
+			font-size 1s, line-height 1s, text-align 1s, float 1s;
 	}
 	&,
 	* {
@@ -61,12 +61,19 @@ html[data-scroll]:not([data-scroll='0']) .header {
 	background: rgba(0, 0, 0, 0.4);
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
 	// .header {
 	// 	display: none;
 	// }
 	body {
-		--headerHeight: 30px;
+		--headerHeight: 50px;
 		--sidePadding: 10px;
+	}
+	.header nav {
+		display: none;
+	}
+	.header h1 {
+		text-align: center;
+		float: none;
 	}
 }

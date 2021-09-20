@@ -33,6 +33,12 @@ const addScroll = el => {
 		// so we can use it in our stylesheets
 		const storeScroll = () => {
 			el.dataset.scroll = el.scrollY ?? el.scrollTop;
+			// el.dataset.amountOfScreen =
+			// 	el.dataset.scroll / document.documentElement.clientHeight;
+			// el.dataset.amountOfScreenFloored = Math.floor(el.dataset.amountOfScreen);
+			// el.dataset.areParticlesVisible =
+			// 	el.dataset.amountOfScreen > 1.3 ? 'false' : 'true';
+
 			if (el.getAttribute('data-primaryScroller') === 'true') {
 				document.documentElement.dataset.scroll = el.dataset.scroll;
 			}
@@ -47,9 +53,13 @@ const addScroll = el => {
 		storeScroll();
 	});
 };
-setTimeout(
-	() => addScroll(document.querySelectorAll('[data-watchscroll]')),
-	500
-);
+if (typeof window !== 'undefined')
+	setTimeout(() => {
+		if (!document.documentElement.dataset.scroll)
+			addScroll(document.querySelectorAll('[data-watchscroll]'));
+	}, 500);
+
+if (typeof window !== 'undefined')
+	document?.getElementById('particles-js')?.remove();
 
 export default App;

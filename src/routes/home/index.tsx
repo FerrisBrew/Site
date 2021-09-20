@@ -1,14 +1,23 @@
-import { FunctionalComponent, h } from 'preact';
+/** @jsx h */
+import { createRef, FunctionalComponent, h } from 'preact';
 import style from './style.scss';
 
 const Home: FunctionalComponent = () => {
+	// Initialize ParticleJS
+	if (typeof window !== 'undefined')
+		// @ts-ignore
+		window.particlesJS.load('particles-js', '/assets/particle.json', () => {
+			console.log('callback - particles.js config loaded');
+		});
 	return (
-		<>
+		// @ts-ignore
+		<div>
 			<div
 				class={style.home}
 				data-watchscroll={true}
 				data-primaryScroller={true}
 			>
+				<div id="particles-js"></div>
 				<div class={style.betterLuaEnv + ' ' + style.section}>
 					<div class={style.left}>
 						<h3>A better Lua Obfuscation Platform.</h3>
@@ -23,10 +32,15 @@ const Home: FunctionalComponent = () => {
 								IronBrew2
 							</a>
 							, FerrisBrew (aka FBrew, FelixBrew) is a Lua Obfuscator designed
-							for speed, efficiency and privacy. <br />
-							This site **is a work-in-progress**! This is not a final version,
-							but rather just what I have coded so far
+							for speed, efficiency and privacy.
 						</p>
+						<button data-target="signup" class="btn modal-trigger purple">
+							Sign Up
+						</button>
+						<span style="width: 30px">&nbsp;</span>
+						<a href="/obfuscate" class="waves-effect pink btn-flat white-text">
+							Login
+						</a>
 					</div>
 					<div class={style.right}></div>
 				</div>
@@ -217,7 +231,7 @@ const Home: FunctionalComponent = () => {
 					</a>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 };
 

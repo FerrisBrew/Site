@@ -1,0 +1,98 @@
+.obfuscateBg {
+	background-image: url('/assets/img.png');
+	background-size: cover;
+	background-position: center;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	filter: #{'brightness(.7) blur(10px)'};
+}
+
+@keyframes obfuscate {
+	0% {
+		width: 0;
+		height: 0;
+		min-height: 0;
+		min-width: 0;
+		max-height: 0;
+		max-width: 0;
+		padding: 0 0;
+	}
+	100% {
+		width: auto;
+		height: auto;
+		min-height: var(--sizeh);
+		min-width: var(--sizew);
+		padding: 20px 20px;
+		max-height: 50vh;
+		max-width: 50vw;
+	}
+}
+@keyframes opacity {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.obfuscate {
+	min-height: var(--sizeh);
+	min-width: var(--sizew);
+	position: fixed;
+	left: 50vw;
+	top: 50vh;
+	display: block;
+	background: #2a2b2caa;
+	padding: 20px 20px;
+	transform: translate(-50%, -50%);
+	border-radius: 10px;
+	animation-name: obfuscate;
+	animation-duration: 3s;
+	animation-iteration-count: 1;
+	.contents {
+		display: none;
+		opacity: 1;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		display: block;
+		transform: translate(-50%, -50%);
+		animation: opacity 3s 1;
+		h2 {
+			font-size: 3em;
+			font-weight: 100;
+		}
+		h3 {
+			font-size: 2.75em;
+			font-weight: 100;
+		}
+		.left,
+		.right {
+			max-width: 40%;
+			max-height: 90%;
+			display: inline-block;
+			margin-left: 20px;
+			margin-right: 20px;
+		}
+		.left {
+			float: left;
+		}
+		.right {
+			float: right;
+		}
+	}
+	--sizeh: 75vh;
+	--sizew: 75vw;
+	text-align: center;
+}
+input[type='text'],
+input[type='password'] {
+	color: #fff;
+}

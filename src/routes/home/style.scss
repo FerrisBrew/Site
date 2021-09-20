@@ -70,12 +70,13 @@
 	height: max-content;
 	font-family: 'Poppins';
 	font-size: 150%;
+	clip-path: ellipse(100% 100% at 50% 0%);
 	@include Section();
 }
 .whyFerris {
 	@include Section();
-	clip-path: ellipse(100% 100% at 50% 100%);
-	background: rgb(7, 7, 7);
+	clip-path: ellipse(100% 100% at 50% 0%);
+	background: rgb(0, 0, 0);
 	& h3 {
 		color: rgb(131, 181, 255);
 		padding-bottom: 15px;
@@ -91,4 +92,22 @@
 }
 .section {
 	@include Section();
+}
+
+@media screen and (max-width: 820px) {
+	.whyFerris {
+		height: 150vh !important;
+	}
+}
+
+@media screen and (max-width: 620px) {
+	.whyFerris {
+		height: 175vh !important;
+		clip-path: ellipse(100% 100% at 50% 10%);
+	}
+}
+@media screen and (max-width: 500px) {
+	.whyFerris {
+		height: 175vh !important;
+	}
 }
