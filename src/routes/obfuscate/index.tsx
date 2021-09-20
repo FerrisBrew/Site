@@ -23,35 +23,60 @@ class Obfuscate extends Component {
 							method="post"
 							encType="multipart/form-data"
 						>
-							<div class={style.left}>
-								<h2>Options</h2>
-								<hr />
-								Soon&trade;
-							</div>
-							<div class={style.right}>
-								<h2>Script</h2>
-								<hr />
-								<label htmlFor="key" for="key">
-									FerrisBrew Key
-								</label>
-								<input type="password" name="key" id="key" value={key} />
-								<label htmlFor="sourceFile" for="sourceFile">
-									Script
-								</label>
-								<br />
-								<input type="hidden" name="MAX_FILE_SIZE" value="65536" />
-								<input
-									type="file"
-									name="sourceFile"
-									id="sourceFile"
-									// style={{ textAlign: 'center' }}
-								/>
-								<input
-									type="submit"
-									value="Submit"
-									download={'script.bin.lua'}
-									class="waves-effect waves-light btn purple"
-								/>
+							<div
+								style={{
+									display: 'inline-block',
+									width: '100%',
+									paddingBottom: '10px',
+								}}
+								class="row"
+							>
+								<div class={`${style.left} col s12 m8`}>
+									<h2>Options</h2>
+									<hr />
+									<div class="switch">
+										<label>
+											Off
+											<input type="checkbox" />
+											<span class="lever"></span>
+										</label>
+									</div>
+									Soon&trade;
+								</div>
+								<div class={`${style.right} col s12 m8`}>
+									<h2>Script</h2>
+									<hr />
+									<label htmlFor="key" for="key">
+										FerrisBrew Key
+									</label>
+									<input type="password" name="key" id="key" value={key} />
+									<br />
+									<hr />
+									<input type="hidden" name="MAX_FILE_SIZE" value="65536" />
+									<input
+										type="file"
+										name="sourceFile"
+										id="sourceFile"
+										// style={{ textAlign: 'center' }}
+										accept="text/plain,text/lua,application/lua"
+										required={true}
+									/>
+									<label
+										htmlFor="sourceFile"
+										for="sourceFile"
+										class="waves-effect waves-light btn purple"
+										required={true}
+									>
+										Select Script
+									</label>
+									<hr />
+									<input
+										type="submit"
+										value="Obfuscate"
+										download={'script.bin.lua'}
+										class="waves-effect waves-light btn purple"
+									/>
+								</div>
 							</div>
 						</form>
 					</div>

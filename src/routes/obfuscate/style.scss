@@ -19,6 +19,7 @@
 		max-height: 0;
 		max-width: 0;
 		padding: 0 0;
+		border-radius: 100%;
 	}
 	100% {
 		width: auto;
@@ -28,6 +29,7 @@
 		padding: 20px 20px;
 		max-height: 50vh;
 		max-width: 50vw;
+		border-radius: 10px;
 	}
 }
 @keyframes opacity {
@@ -87,6 +89,8 @@
 		.right {
 			float: right;
 		}
+		max-height: 75%;
+		width: 75%;
 	}
 	--sizeh: 75vh;
 	--sizew: 75vw;
@@ -95,4 +99,14 @@
 input[type='text'],
 input[type='password'] {
 	color: #fff;
+}
+input[type='file'] {
+	border: 0;
+	clip: rect(0, 0, 0, 0);
+	height: 1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	white-space: nowrap;
+	width: 1px;
 }
