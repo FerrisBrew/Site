@@ -1,0 +1,18 @@
+[
+	{
+		"Display": "Encrypt Strings",
+		"Name": "EncryptStrings"
+	},
+	{
+		"Display": "Encrypt Important Strings",
+		"Name": "EncryptImportantStrings"
+	},
+	{
+		"Display": "Control Flow",
+		"Name": "ControlFlow"
+	},
+	{
+		"Display": "Memes",
+		"Name": "Memes"
+	}
+]

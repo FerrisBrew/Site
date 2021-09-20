@@ -1,0 +1,26 @@
+.ucontrol {
+	input:not([type]):not(.browser-default),
+	input[type='text']:not(.browser-default),
+	input[type='password']:not(.browser-default),
+	input[type='email']:not(.browser-default),
+	input[type='url']:not(.browser-default),
+	input[type='time']:not(.browser-default),
+	input[type='date']:not(.browser-default),
+	input[type='datetime']:not(.browser-default),
+	input[type='datetime-local']:not(.browser-default),
+	input[type='tel']:not(.browser-default),
+	input[type='number']:not(.browser-default),
+	input[type='search']:not(.browser-default) {
+		color: #fff !important;
+		text-align: center;
+		border-left: none !important;
+		border-right: none !important;
+		border-top: none !important;
+	}
+	input[type='range']:not(.browser-default) {
+		border: none !important;
+	}
+	label {
+		text-align: center;
+	}
+}

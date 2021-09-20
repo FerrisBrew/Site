@@ -1,6 +1,56 @@
 import { Component, createRef, h } from 'preact';
 import { Link } from 'preact-router/match';
 import style from './style.scss';
+import Settings from '../../settings';
+
+class SavedInput extends Component<{
+	type: any;
+	name: any;
+	value?: any;
+	id?: string;
+	required?: any;
+}> {
+	ref = createRef();
+	render() {
+		const r = (v: string) => {
+			let x: any = v;
+			if (this.props.type === 'checkbox') x = Boolean(x);
+			if (this.props.type === 'password' && (x === 'false' || x === false))
+				x = '';
+			console.log(x, typeof x, this.props.type);
+
+			return x;
+		};
+		const x = () =>
+			typeof window !== 'undefined'
+				? r(
+						localStorage.getItem(
+							`savedInput-${this.props.type}-${this.props.name}`
+						)
+				  ) ??
+				  this.props.value ??
+				  false
+				: null;
+		return (
+			<input
+				ref={this.ref}
+				type={this.props.type}
+				name={this.props.name}
+				value={x()}
+				checked={x()}
+				onChange={event => {
+					localStorage.setItem(
+						`savedInput-${this.props.type}-${this.props.name}`,
+						// @ts-ignore
+						this.ref.current.value ?? event.target.checked
+					);
+				}}
+				id={this.props.id}
+				required={this.props.required}
+			/>
+		);
+	}
+}
 
 class Obfuscate extends Component {
 	ref = createRef();
@@ -19,7 +69,11 @@ class Obfuscate extends Component {
 					<div class={style.contents} ref={this.ref}>
 						<form
 							id="uploadForm"
-							action="/out.lua"
+							action={
+								document.location.host == 'localhost:8080'
+									? 'http://localhost:6438/out.lua'
+									: '/out.lua'
+							}
 							method="post"
 							encType="multipart/form-data"
 						>
@@ -34,14 +88,18 @@ class Obfuscate extends Component {
 								<div class={`${style.left} col s12 m8`}>
 									<h2>Options</h2>
 									<hr />
-									<div class="switch">
-										<label>
-											Off
-											<input type="checkbox" />
-											<span class="lever"></span>
-										</label>
-									</div>
-									Soon&trade;
+									{Settings.map(v => (
+										<div class="switch">
+											<label>
+												{v.Display}
+												<SavedInput type="checkbox" name={v.Name} />
+												<span class="lever" />
+											</label>
+										</div>
+									))}
+									<br />
+									<br />
+									More Soon&trade;
 								</div>
 								<div class={`${style.right} col s12 m8`}>
 									<h2>Script</h2>
@@ -49,9 +107,14 @@ class Obfuscate extends Component {
 									<label htmlFor="key" for="key">
 										FerrisBrew Key
 									</label>
-									<input type="password" name="key" id="key" value={key} />
+									<SavedInput
+										type="password"
+										name="key"
+										id="key"
+										value={key}
+										required={true}
+									/>
 									<br />
-									<hr />
 									<input type="hidden" name="MAX_FILE_SIZE" value="65536" />
 									<input
 										type="file"

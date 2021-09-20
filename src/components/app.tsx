@@ -4,6 +4,7 @@ import { Route, Router } from 'preact-router';
 import Home from '../routes/home';
 import NotFoundPage from '../routes/notfound';
 import Obfuscate from '../routes/obfuscate';
+import UserControl from '../routes/userControl';
 import Header from './header';
 
 const App: FunctionalComponent = () => {
@@ -19,6 +20,7 @@ const App: FunctionalComponent = () => {
 			<Router>
 				<Route path="/" component={Home} />
 				<Route path="/obfuscate" component={Obfuscate} />
+				<Route path="/usercontrol" component={UserControl} />
 				<NotFoundPage default />
 			</Router>
 		</div>
