@@ -38,11 +38,19 @@ class Obfuscate extends Component {
 								<label htmlFor="sourceFile" for="sourceFile">
 									Script
 								</label>
-								<input type="file" name="sourceFile" id="sourceFile" />
+								<br />
+								<input type="hidden" name="MAX_FILE_SIZE" value="65536" />
+								<input
+									type="file"
+									name="sourceFile"
+									id="sourceFile"
+									// style={{ textAlign: 'center' }}
+								/>
 								<input
 									type="submit"
 									value="Submit"
 									download={'script.bin.lua'}
+									class="waves-effect waves-light btn purple"
 								/>
 							</div>
 						</form>
